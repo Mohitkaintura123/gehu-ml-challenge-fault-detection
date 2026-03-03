@@ -14,7 +14,7 @@ The problem is formulated as a binary classification task:
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 ---
-
+<br>
 ## DATASET:
 
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
