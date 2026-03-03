@@ -17,7 +17,7 @@ The problem is formulated as a binary classification task:
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
 
-
+<br/>
 ## DATASET:
 
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
@@ -35,7 +35,7 @@ Each sample corresponds to a snapshot of the device’s state.
 - Evaluation metric: F1 Score
 
 
-
+<br/>
 ## METHODOLOGY:
 ### **a. Model Architecture:**
 
@@ -66,7 +66,7 @@ To ensure reliable performance estimation and minimize overfitting, we used:
 The decision threshold was selected to maximize the F1 Score.
 
 
-
+<br/>
 ## PIPELINE OVERVIEW:
 
 ```
@@ -85,7 +85,7 @@ The decision threshold was selected to maximize the F1 Score.
 ```
 
 
-
+<br/>
 ## RESULTS:
 
 - Out-of-Fold F1 Score: 0.9867
@@ -97,7 +97,7 @@ The decision threshold was selected to maximize the F1 Score.
 These results indicate strong generalization capability.
 
 
-
+<br/>
 ## REPRODUCIBILITY:
 
 Clone the repository:
@@ -113,7 +113,8 @@ Run the training script:
 ```
 python train.py
 ```
----
+
+<br/>
 ## OUTPUT:
 
 The script generates a file named ```"submission.csv"``` containing predictions for the test dataset.
@@ -125,7 +126,7 @@ ID,Class
 Predictions are aligned with the original order of the test data.
 
 
-
+<br/>
 ## TECHNOLOGIES USED:
 
 - Python
@@ -141,12 +142,12 @@ Predictions are aligned with the original order of the test data.
 - NumPy
 
 
-
+<br/>
 ## ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
 
-
+<br/>
 ## Notes
 
 The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration.
