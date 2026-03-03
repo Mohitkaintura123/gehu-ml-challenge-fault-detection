@@ -1,97 +1,121 @@
 IEEE ML Challenge — Fault Detection System
+📌 Overview
 
-
-1. OVERVIEW:
 This repository contains our team’s solution for the IEEE SB GEHU Machine Learning Challenge.
+
 The objective is to detect faulty device states using telemetry data collected from an embedded monitoring system.
 
 The problem is formulated as a binary classification task:
+
 0 — Normal Operation
+
 1 — Fault Condition
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
+📊 Dataset
 
-2. DATASET
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
+
 Each sample corresponds to a snapshot of the device’s state.
 
 Key Characteristics:
+
 All features are numeric
+
 Target variable: "Class"
+
 Binary labels: Normal (0) or Faulty (1)
+
 Evaluation metric: F1 Score
 
+🧠 Methodology
+🔹 Model Architecture
 
-3. METHODOLOGY
-a. Model Architecture
 We implemented an ensemble of two gradient boosting algorithms:
+
 CatBoost Classifier
+
 LightGBM Classifier
+
 These models are well-suited for tabular data and can capture complex nonlinear relationships between features.
 
-Final predictions are obtained using weighted averaging of model probabilities:
-Final Probability=0.6×CatBoost+0.4×LightGBM
-Final Probability=0.6×CatBoost+0.4×LightGBM
+Final predictions are obtained using weighted averaging:
 
-b. Validation Strategy
+Final Probability = 0.6 × CatBoost + 0.4 × LightGBM
+🔹 Validation Strategy
+
 To ensure reliable performance estimation and minimize overfitting, we used:
+
 Stratified 5-Fold Cross-Validation
+
 Out-of-Fold (OOF) Predictions
+
 Threshold tuning based on validation performance
+
 The decision threshold was selected to maximize the F1 Score.
 
+⚙️ Pipeline Overview
+                Training Data
+                     ↓
+      Stratified 5-Fold Cross-Validation
+         ↓                           ↓
+   ┌───────────────┐           ┌───────────────┐
+   │   CatBoost    │           │   LightGBM    │
+   └───────────────┘           └───────────────┘
+           └────── Weighted Averaging ──────┘
+                        ↓
+               Threshold Optimization
+                        ↓
+                Final Predictions
+📈 Results
 
-4. PIPELINE OVERVIEW
-                                       Training Data
-                         ↓
-          Stratified 5-Fold Cross-Validation
-           ↓                               ↓
-      ┌───────────────┐              ┌───────────────┐
-      │   CatBoost    │              │   LightGBM    │
-      └───────────────┘              └───────────────┘
-              └──────── Weighted Averaging ────────┘
-                          ↓
-                 Threshold Optimization
-                          ↓
-                    Final Predictions
-
-
-5. RESULTS
 Out-of-Fold F1 Score: 0.9867
+
 Consistent performance across folds
+
 Minimal gap between training and validation scores
+
 These results indicate strong generalization capability.
 
-
-6. REPRODUCIBILITY
-Clone the repository:
+🔁 Reproducibility
+1️⃣ Clone the Repository
 git clone https://github.com/username/repo
 cd repo
-Install dependencies:
+2️⃣ Install Dependencies
 pip install -r requirements.txt
-Run the training script:
+3️⃣ Run Training
 python train.py
+📂 Output
 
+The script generates a file named:
 
-7. OUTPUT
-The script generates a file named "submission.csv" containing predictions for the test dataset.
+submission.csv
 
-Format: ID,Class
-Predictions are aligned with the original order of the test data.
+Format:
 
-8. TECHNOLOGIES USED
+ID,Class
+
+Predictions are aligned with the original order of the test dataset.
+
+🛠 Technologies Used
+
 Python
+
 CatBoost
+
 LightGBM
+
 Scikit-learn
+
 Pandas
+
 NumPy
 
-9. ORIGINALITY STATEMENT
+📜 Originality Statement
+
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
 
+💻 Notes
 
-
-Notes
 The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration.
