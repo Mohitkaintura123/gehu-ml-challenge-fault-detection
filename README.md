@@ -98,7 +98,6 @@ The decision threshold was selected to maximize the F1 Score.
 
 These results indicate strong generalization capability.
 
-
 <br/>
 
 ## REPRODUCIBILITY:
@@ -129,7 +128,6 @@ ID,Class
 ```
 Predictions are aligned with the original order of the test data.
 
-
 <br/>
 
 ## TECHNOLOGIES USED:
@@ -145,7 +143,6 @@ Predictions are aligned with the original order of the test data.
 - Pandas
 
 - NumPy
-
 
 <br/>
 
