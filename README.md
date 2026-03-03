@@ -1,5 +1,5 @@
 # IEEE ML Challenge — Fault Detection System
-
+---
 
 ## OVERVIEW:
 
@@ -14,7 +14,7 @@ The problem is formulated as a binary classification task:
 - **1 — Fault Condition**
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
-
+---
 
 ## DATASET:
 
