@@ -41,9 +41,9 @@ PIPELINE OVERVIEW
                     Training Data
                          ↓
           Stratified 5-Fold Cross-Validation
-           ↓                              ↓
+           ↓                               ↓
  ┌───────────────┐                    ┌───────────────┐
- │   CatBoost    │                    │   LightGBM    │
+ │   CatBoost       │                    │   LightGBM       │
  └───────────────┘                    └───────────────┘
           └──────── Weighted Averaging ────────┘
                           ↓
