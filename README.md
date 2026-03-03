@@ -1,5 +1,6 @@
 # IEEE ML Challenge — Fault Detection System
 
+
 ## OVERVIEW:
 
 This repository contains our team’s solution for the **IEEE SB GEHU Machine Learning Challenge**.
@@ -13,6 +14,7 @@ The problem is formulated as a binary classification task:
 - 1 — Fault Condition
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
+
 
 ## DATASET:
 
@@ -29,6 +31,7 @@ Each sample corresponds to a snapshot of the device’s state.
 - Binary labels: Normal (0) or Faulty (1)
 
 - Evaluation metric: F1 Score
+
 
 ## METHODOLOGY:
 ### **a. Model Architecture:**
@@ -59,9 +62,10 @@ To ensure reliable performance estimation and minimize overfitting, we used:
 
 The decision threshold was selected to maximize the F1 Score.
 
-## PIPELINE OVERVIEW:
-'''
 
+## PIPELINE OVERVIEW:
+
+```
                     Training Data
                          ↓
           Stratified 5-Fold Cross-Validation
@@ -74,7 +78,9 @@ The decision threshold was selected to maximize the F1 Score.
                  Threshold Optimization
                           ↓
                     Final Predictions
-'''
+```
+
+
 ## RESULTS:
 
 - Out-of-Fold F1 Score: 0.9867
@@ -85,48 +91,52 @@ The decision threshold was selected to maximize the F1 Score.
 
 These results indicate strong generalization capability.
 
+
 ## REPRODUCIBILITY:
 
 Clone the repository:
-
+```
 git clone https://github.com/username/repo
 cd repo
-
+```
 Install dependencies:
-
+```
 pip install -r requirements.txt
-
+```
 Run the training script:
-
+```
 python train.py
+```
 
 ## OUTPUT:
 
-The script generates a file named "submission.csv" containing predictions for the test dataset.
+The script generates a file named ```"submission.csv"``` containing predictions for the test dataset.
 
 Format:
-
+```
 ID,Class
-
+```
 Predictions are aligned with the original order of the test data.
 
-TECHNOLOGIES USED:
+## TECHNOLOGIES USED:
 
-Python
+- Python
 
-CatBoost
+- CatBoost
 
-LightGBM
+- LightGBM
 
-Scikit-learn
+- Scikit-learn
 
-Pandas
+- Pandas
 
-NumPy
+- NumPy
+
 
 ## ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
+
 
 ## Notes
 
