@@ -1,5 +1,7 @@
 # IEEE ML Challenge — Fault Detection System
----
+
+
+
 ## OVERVIEW
 
 This repository contains our team’s solution for the **IEEE SB GEHU Machine Learning Challenge**.
@@ -14,7 +16,7 @@ The problem is formulated as a binary classification task:
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
----
+
 
 ## DATASET:
 
@@ -32,7 +34,8 @@ Each sample corresponds to a snapshot of the device’s state.
 
 - Evaluation metric: F1 Score
 
----
+
+
 ## METHODOLOGY:
 ### **a. Model Architecture:**
 
@@ -62,7 +65,8 @@ To ensure reliable performance estimation and minimize overfitting, we used:
 
 The decision threshold was selected to maximize the F1 Score.
 
----
+
+
 ## PIPELINE OVERVIEW:
 
 ```
@@ -80,7 +84,8 @@ The decision threshold was selected to maximize the F1 Score.
                     Final Predictions
 ```
 
----
+
+
 ## RESULTS:
 
 - Out-of-Fold F1 Score: 0.9867
@@ -91,7 +96,8 @@ The decision threshold was selected to maximize the F1 Score.
 
 These results indicate strong generalization capability.
 
----
+
+
 ## REPRODUCIBILITY:
 
 Clone the repository:
@@ -117,7 +123,9 @@ Format:
 ID,Class
 ```
 Predictions are aligned with the original order of the test data.
----
+
+
+
 ## TECHNOLOGIES USED:
 
 - Python
@@ -132,7 +140,8 @@ Predictions are aligned with the original order of the test data.
 
 - NumPy
 
----
+
+
 ## ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
