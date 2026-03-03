@@ -2,6 +2,7 @@ IEEE ML Challenge — Fault Detection System
 
 
 1. OVERVIEW:
+   
   This repository contains our team’s solution for the IEEE SB GEHU Machine Learning Challenge.
   The objective is to detect faulty device states using telemetry data collected from an embedded     monitoring system.
   The problem is formulated as a binary classification task:
