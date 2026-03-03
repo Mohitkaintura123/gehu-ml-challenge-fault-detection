@@ -1,5 +1,5 @@
 # IEEE ML Challenge — Fault Detection System
-<br><br>
+<br>
 ## OVERVIEW:
 
 This repository contains our team’s solution for the **IEEE SB GEHU Machine Learning Challenge**.
