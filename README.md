@@ -152,8 +152,7 @@ All code, experiments, and methodology in this repository were developed by our 
 
 <br/>
 
+## Notes
 ```
-## **Notes**
-
 The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration.
 ```
