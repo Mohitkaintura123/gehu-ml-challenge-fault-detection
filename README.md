@@ -1,7 +1,7 @@
 # IEEE ML Challenge — Fault Detection System
 
 
-## OVERVIEW:
+## 1. OVERVIEW:
 
 This repository contains our team’s solution for the **IEEE SB GEHU Machine Learning Challenge**.
 
@@ -16,7 +16,7 @@ The problem is formulated as a binary classification task:
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
 
-## DATASET:
+## 2. DATASET:
 
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
 
@@ -33,7 +33,7 @@ Each sample corresponds to a snapshot of the device’s state.
 - Evaluation metric: F1 Score
 
 
-## METHODOLOGY:
+## 3. METHODOLOGY:
 ### **a. Model Architecture:**
 
 We implemented an ensemble of two gradient boosting algorithms:
@@ -63,7 +63,7 @@ To ensure reliable performance estimation and minimize overfitting, we used:
 The decision threshold was selected to maximize the F1 Score.
 
 
-## PIPELINE OVERVIEW:
+## 4. PIPELINE OVERVIEW:
 
 ```
                     Training Data
@@ -81,7 +81,7 @@ The decision threshold was selected to maximize the F1 Score.
 ```
 
 
-## RESULTS:
+## 5. RESULTS:
 
 - Out-of-Fold F1 Score: 0.9867
 
@@ -92,7 +92,7 @@ The decision threshold was selected to maximize the F1 Score.
 These results indicate strong generalization capability.
 
 
-## REPRODUCIBILITY:
+## 6. REPRODUCIBILITY:
 
 Clone the repository:
 ```
@@ -108,7 +108,7 @@ Run the training script:
 python train.py
 ```
 
-## OUTPUT:
+## 7. OUTPUT:
 
 The script generates a file named ```"submission.csv"``` containing predictions for the test dataset.
 
@@ -118,7 +118,7 @@ ID,Class
 ```
 Predictions are aligned with the original order of the test data.
 
-## TECHNOLOGIES USED:
+## 8. TECHNOLOGIES USED:
 
 - Python
 
@@ -133,7 +133,7 @@ Predictions are aligned with the original order of the test data.
 - NumPy
 
 
-## ORIGINALITY STATEMENT:
+## 9. ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
 
