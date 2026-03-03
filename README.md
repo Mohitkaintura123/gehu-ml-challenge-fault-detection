@@ -1,6 +1,6 @@
-IEEE ML Challenge — Fault Detection System
+# IEEE ML Challenge — Fault Detection System
 
-OVERVIEW:
+## OVERVIEW:
 
 This repository contains our team’s solution for the IEEE SB GEHU Machine Learning Challenge.
 
@@ -14,13 +14,13 @@ The problem is formulated as a binary classification task:
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
-DATASET:
+## DATASET:
 
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
 
 Each sample corresponds to a snapshot of the device’s state.
 
-Key Characteristics:
+## Key Characteristics:
 
 All features are numeric
 
@@ -30,7 +30,7 @@ Binary labels: Normal (0) or Faulty (1)
 
 Evaluation metric: F1 Score
 
-METHODOLOGY:
+## METHODOLOGY:
 a. Model Architecture
 
 We implemented an ensemble of two gradient boosting algorithms:
@@ -57,7 +57,8 @@ Threshold tuning based on validation performance
 
 The decision threshold was selected to maximize the F1 Score.
 
-PIPELINE OVERVIEW:
+## PIPELINE OVERVIEW:
+'''
                     Training Data
                          ↓
           Stratified 5-Fold Cross-Validation
@@ -70,7 +71,8 @@ PIPELINE OVERVIEW:
                  Threshold Optimization
                           ↓
                     Final Predictions
-RESULTS:
+'''
+## RESULTS:
 
 Out-of-Fold F1 Score: 0.9867
 
@@ -95,7 +97,7 @@ Run the training script:
 
 python train.py
 
-OUTPUT:
+## OUTPUT:
 
 The script generates a file named "submission.csv" containing predictions for the test dataset.
 
@@ -119,10 +121,10 @@ Pandas
 
 NumPy
 
-ORIGINALITY STATEMENT:
+## ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
 
-Notes
+## Notes
 
 The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration.
