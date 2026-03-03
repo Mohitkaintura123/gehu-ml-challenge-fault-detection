@@ -1,6 +1,6 @@
-# IEEE ML Challenge — Fault Detection System <br/>
+# IEEE ML Challenge — Fault Detection System 
 
-
+<br/>
 
 ## OVERVIEW
 
