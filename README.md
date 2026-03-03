@@ -2,15 +2,15 @@
 
 ## OVERVIEW:
 
-This repository contains our team’s solution for the IEEE SB GEHU Machine Learning Challenge.
+This repository contains our team’s solution for the **IEEE SB GEHU Machine Learning Challenge**.
 
 The objective is to detect faulty device states using telemetry data collected from an embedded monitoring system.
 
 The problem is formulated as a binary classification task:
 
-0 — Normal Operation
+- 0 — Normal Operation
 
-1 — Fault Condition
+- 1 — Fault Condition
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
@@ -20,45 +20,48 @@ The dataset consists of 47 numerical features (F01–F47) representing operation
 
 Each sample corresponds to a snapshot of the device’s state.
 
-## Key Characteristics:
+**Key Characteristics:**
 
-All features are numeric
+- All features are numeric
 
-Target variable: "Class"
+- Target variable: "Class"
 
-Binary labels: Normal (0) or Faulty (1)
+- Binary labels: Normal (0) or Faulty (1)
 
-Evaluation metric: F1 Score
+- Evaluation metric: F1 Score
 
 ## METHODOLOGY:
-a. Model Architecture
+### **a. Model Architecture:**
 
 We implemented an ensemble of two gradient boosting algorithms:
 
-CatBoost Classifier
+- CatBoost Classifier
 
-LightGBM Classifier
+- LightGBM Classifier
 
 These models are well-suited for tabular data and can capture complex nonlinear relationships between features.
 
 Final predictions are obtained using weighted averaging of model probabilities:
 
+```
 Final Probability=0.6×CatBoost+0.4×LightGBM
-Final Probability=0.6×CatBoost+0.4×LightGBM
-b. Validation Strategy
+```
+
+### **b. Validation Strategy:**
 
 To ensure reliable performance estimation and minimize overfitting, we used:
 
-Stratified 5-Fold Cross-Validation
+- Stratified 5-Fold Cross-Validation
 
-Out-of-Fold (OOF) Predictions
+- Out-of-Fold (OOF) Predictions
 
-Threshold tuning based on validation performance
+- Threshold tuning based on validation performance
 
 The decision threshold was selected to maximize the F1 Score.
 
 ## PIPELINE OVERVIEW:
 '''
+
                     Training Data
                          ↓
           Stratified 5-Fold Cross-Validation
@@ -74,15 +77,15 @@ The decision threshold was selected to maximize the F1 Score.
 '''
 ## RESULTS:
 
-Out-of-Fold F1 Score: 0.9867
+- Out-of-Fold F1 Score: 0.9867
 
-Consistent performance across folds
+- Consistent performance across folds
 
-Minimal gap between training and validation scores
+- Minimal gap between training and validation scores
 
 These results indicate strong generalization capability.
 
-REPRODUCIBILITY:
+## REPRODUCIBILITY:
 
 Clone the repository:
 
