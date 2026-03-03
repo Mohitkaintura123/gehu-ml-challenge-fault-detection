@@ -1,5 +1,4 @@
 # IEEE ML Challenge — Fault Detection System 
-
 <br/>
 
 ## OVERVIEW
