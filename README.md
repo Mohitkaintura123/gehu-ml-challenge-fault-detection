@@ -1,5 +1,6 @@
 IEEE ML Challenge — Fault Detection System
-1. OVERVIEW
+
+OVERVIEW:
 
 This repository contains our team’s solution for the IEEE SB GEHU Machine Learning Challenge.
 
@@ -13,7 +14,7 @@ The problem is formulated as a binary classification task:
 
 Our approach focuses on building a robust model that generalizes well to unseen data using ensemble learning and a carefully designed validation strategy.
 
-2. DATASET
+DATASET:
 
 The dataset consists of 47 numerical features (F01–F47) representing operational parameters recorded during device activity cycles.
 
@@ -29,7 +30,7 @@ Binary labels: Normal (0) or Faulty (1)
 
 Evaluation metric: F1 Score
 
-3. METHODOLOGY
+METHODOLOGY:
 a. Model Architecture
 
 We implemented an ensemble of two gradient boosting algorithms:
@@ -56,7 +57,7 @@ Threshold tuning based on validation performance
 
 The decision threshold was selected to maximize the F1 Score.
 
-4. PIPELINE OVERVIEW
+PIPELINE OVERVIEW:
                     Training Data
                          ↓
           Stratified 5-Fold Cross-Validation
@@ -69,7 +70,7 @@ The decision threshold was selected to maximize the F1 Score.
                  Threshold Optimization
                           ↓
                     Final Predictions
-5. RESULTS
+RESULTS:
 
 Out-of-Fold F1 Score: 0.9867
 
@@ -79,7 +80,7 @@ Minimal gap between training and validation scores
 
 These results indicate strong generalization capability.
 
-6. REPRODUCIBILITY
+REPRODUCIBILITY:
 
 Clone the repository:
 
@@ -93,7 +94,8 @@ pip install -r requirements.txt
 Run the training script:
 
 python train.py
-7. OUTPUT
+
+OUTPUT:
 
 The script generates a file named "submission.csv" containing predictions for the test dataset.
 
@@ -103,7 +105,7 @@ ID,Class
 
 Predictions are aligned with the original order of the test data.
 
-8. TECHNOLOGIES USED
+TECHNOLOGIES USED:
 
 Python
 
@@ -117,7 +119,7 @@ Pandas
 
 NumPy
 
-9. ORIGINALITY STATEMENT
+ORIGINALITY STATEMENT:
 
 All code, experiments, and methodology in this repository were developed by our team specifically for this challenge.
 
