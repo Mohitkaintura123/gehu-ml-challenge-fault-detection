@@ -1,12 +1,10 @@
+
 import pandas as pd
 import numpy as np
-
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score
-
 from catboost import CatBoostClassifier
 import lightgbm as lgb
-
 
 # Load training and test datasets
 train = pd.read_csv("TRAIN.csv")
@@ -30,11 +28,9 @@ kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 oof_preds = np.zeros(len(X))
 test_preds = np.zeros(len(X_test))
 
-
 # Train models across folds
 for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
     print(f"\nFold {fold + 1}")
-
     X_train, X_val = X.iloc[train_idx], X.iloc[val_idx]
     y_train, y_val = y.iloc[train_idx], y.iloc[val_idx]
 
@@ -50,7 +46,6 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
         early_stopping_rounds=300,
         verbose=False
     )
-
     cat.fit(X_train, y_train, eval_set=(X_val, y_val))
 
     # LightGBM model
@@ -63,7 +58,6 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
         colsample_bytree=0.8,
         random_state=42
     )
-
     lgbm.fit(X_train, y_train)
 
     # Validation predictions
@@ -78,7 +72,6 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
     lgb_test = lgbm.predict_proba(X_test)[:, 1]
 
     test_preds += (0.6 * cat_test + 0.4 * lgb_test) / kf.n_splits
-
 
 # Threshold tuning using OOF predictions
 best_f1 = 0
