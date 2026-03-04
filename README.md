@@ -26,23 +26,19 @@ Each sample corresponds to a snapshot of the device’s state.
 **Key Characteristics:**
 
 - All features are numeric
-
 - Target variable: "Class"
-
 - Binary labels: Normal (0) or Faulty (1)
-
 - Evaluation metric: F1 Score
-
 
 <br/>
 
 ## METHODOLOGY:
+
 ### **a. Model Architecture:**
 
 We implemented an ensemble of two gradient boosting algorithms:
 
 - **CatBoost Classifier**
-
 - **LightGBM Classifier**
 
 These models are well-suited for tabular data and can capture complex nonlinear relationships between features.
@@ -50,7 +46,7 @@ These models are well-suited for tabular data and can capture complex nonlinear 
 Final predictions are obtained using weighted averaging of model probabilities:
 
 ```
-Final Probability=0.6×CatBoost+0.4×LightGBM
+Final Probability = 0.6 × CatBoost + 0.4 × LightGBM
 ```
 
 ### **b. Validation Strategy:**
@@ -58,42 +54,44 @@ Final Probability=0.6×CatBoost+0.4×LightGBM
 To ensure reliable performance estimation and minimize overfitting, we used:
 
 - Stratified 5-Fold Cross-Validation
-
 - Out-of-Fold (OOF) Predictions
-
 - Threshold tuning based on validation performance
 
 The decision threshold was selected to maximize the F1 Score.
 
+### **c. Feature Analysis**
+
+Basic exploratory analysis was performed to understand feature behavior and class distribution.
+
+Since all features represent numerical sensor readings, gradient boosting models were selected because they are particularly effective for structured tabular datasets and require minimal preprocessing.
+
+Feature importance analysis from CatBoost and LightGBM was also examined to confirm that multiple features contribute to the prediction rather than relying on a single dominant variable.
 
 <br/>
 
 ## PIPELINE OVERVIEW:
 
 ```
-                    Training Data
-                         ↓
-          Stratified 5-Fold Cross-Validation
+                     Training Data
+                          ↓
+           Stratified 5-Fold Cross-Validation
            ↓                               ↓
       ┌───────────────┐              ┌───────────────┐
-      │   CatBoost    │              │   LightGBM    │
+      │   CatBoost       │              |   LightGBM       |
       └───────────────┘              └───────────────┘
               └──────── Weighted Averaging ────────┘
-                          ↓
-                 Threshold Optimization
-                          ↓
-                    Final Predictions
+                           ↓
+                  Threshold Optimization
+                           ↓
+                      Final Predictions
 ```
-
 
 <br/>
 
 ## RESULTS:
 
 - Out-of-Fold F1 Score: 0.9867
-
 - Consistent performance across folds
-
 - Minimal gap between training and validation scores
 
 These results indicate strong generalization capability.
@@ -101,47 +99,42 @@ These results indicate strong generalization capability.
 <br/>
 
 ## REPRODUCIBILITY:
-
+    
 Clone the repository:
-```
+
 git clone https://github.com/username/repo
 cd repo
-```
+
 Install dependencies:
-```
+
 pip install -r requirements.txt
-```
+
 Run the training script:
-```
+
 python train.py
-```
+
 
 <br/>
 
 ## OUTPUT:
 
-The script generates a file named ```"submission.csv"``` containing predictions for the test dataset.
+The script generates a file named **FINAL.csv** containing predictions for the test dataset.
 
 Format:
-```
-ID,Class
-```
-Predictions are aligned with the original order of the test data.
+
+ID,CLASS
+
+Predictions are aligned with the original order of the test data and contain exactly **10944 rows**, matching the provided TEST dataset.
 
 <br/>
 
 ## TECHNOLOGIES USED:
 
 - Python
-
 - CatBoost
-
 - LightGBM
-
 - Scikit-learn
-
 - Pandas
-
 - NumPy
 
 <br/>
@@ -153,6 +146,5 @@ All code, experiments, and methodology in this repository were developed by our 
 <br/>
 
 ## Notes
-```
-The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration.
-```
+
+The solution is optimized for CPU execution and can be run on a standard laptop without GPU acceleration. Random seeds were fixed during training to ensure reproducibility of results.
