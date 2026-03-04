@@ -102,7 +102,7 @@ These results indicate strong generalization capability.
     
 Clone the repository:
 
-git clone https://github.com/username/repo
+git clone https://github.com/Mohitkaintura123/gehu-ml-challenge-fault-detection
 cd repo
 
 Install dependencies:
