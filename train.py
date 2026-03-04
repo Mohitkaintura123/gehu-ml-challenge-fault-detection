@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
@@ -21,6 +20,9 @@ y = train["Class"]
 test_ids = test["ID"]
 X_test = test.drop("ID", axis=1)
 
+# Ensure test features match training feature order
+X_test = X_test[X.columns]
+
 # Stratified K-Fold to maintain class balance
 kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
@@ -31,6 +33,7 @@ test_preds = np.zeros(len(X_test))
 # Train models across folds
 for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
     print(f"\nFold {fold + 1}")
+
     X_train, X_val = X.iloc[train_idx], X.iloc[val_idx]
     y_train, y_val = y.iloc[train_idx], y.iloc[val_idx]
 
@@ -46,6 +49,7 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
         early_stopping_rounds=300,
         verbose=False
     )
+
     cat.fit(X_train, y_train, eval_set=(X_val, y_val))
 
     # LightGBM model
@@ -58,6 +62,7 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(X, y)):
         colsample_bytree=0.8,
         random_state=42
     )
+
     lgbm.fit(X_train, y_train)
 
     # Validation predictions
