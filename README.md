@@ -121,7 +121,6 @@ The script generates a file named **FINAL.csv** containing predictions for the t
 
 **Format:**
 
-
 ID,CLASS
 
 - The file contains exactly **10944 rows**
@@ -151,4 +150,4 @@ All code, experiments, and methodology in this repository were developed by our 
 
 - The solution is optimized for CPU execution and does not require GPU acceleration.
 - Random seeds were fixed during training to ensure reproducibility.
-- Only the latest code file is included for evaluation clarity.
+
